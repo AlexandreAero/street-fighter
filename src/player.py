@@ -1,6 +1,6 @@
 import pygame
 
-class Player(pygame.sprite.Sprite):
+class player(pygame.sprite.Sprite):
     DIRECTION_RIGHT = 0
     DIRECTION_LEFT = 1
     HEALTH_BAR_COLOR_BG = (255, 255, 255)
@@ -31,7 +31,7 @@ class Player(pygame.sprite.Sprite):
         self.attack_sprites_right = self.import_sprites(
             ['./art/attack-right-1.png', './art/attack-right-2.png'])
 
-        if self.direction == Player.DIRECTION_RIGHT:
+        if self.direction == player.DIRECTION_RIGHT:
             self.image = self.idle_sprites_right[self.current_sprite_index]
         else:
             self.image = self.idle_sprites_left[self.current_sprite_index]
@@ -68,7 +68,7 @@ class Player(pygame.sprite.Sprite):
         '''
         self.current_sprite_index += 0.1
 
-        if self.direction == Player.DIRECTION_RIGHT:
+        if self.direction == player.DIRECTION_RIGHT:
             if self.current_sprite_index >= len(self.idle_sprites_right):
                 self.current_sprite_index = 0
 
@@ -82,7 +82,7 @@ class Player(pygame.sprite.Sprite):
 
     def update_inputs(self, enemy):
         '''
-        Player -> None
+        player -> None
         Moves and orients the character according to the key pressed.
         '''
         keys = pygame.key.get_pressed()
@@ -92,11 +92,11 @@ class Player(pygame.sprite.Sprite):
         if self.id == 0:
             if keys[pygame.K_q]:
                 self.rect.x -= self.speed
-                self.direction = Player.DIRECTION_LEFT
+                self.direction = player.DIRECTION_LEFT
 
             elif keys[pygame.K_d]:
                 self.rect.x += self.speed
-                self.direction = Player.DIRECTION_RIGHT
+                self.direction = player.DIRECTION_RIGHT
 
             elif keys[pygame.K_v]:
                 self.attack(enemy)
@@ -104,11 +104,11 @@ class Player(pygame.sprite.Sprite):
         else:
             if keys[pygame.K_LEFT]:
                 self.rect.x -= self.speed
-                self.direction = Player.DIRECTION_LEFT
+                self.direction = player.DIRECTION_LEFT
 
             elif keys[pygame.K_RIGHT]:
                 self.rect.x += self.speed
-                self.direction = Player.DIRECTION_RIGHT
+                self.direction = player.DIRECTION_RIGHT
 
             elif keys[pygame.K_m]:
                 self.attack(enemy)
@@ -125,16 +125,16 @@ class Player(pygame.sprite.Sprite):
         '''
         self.health_bar.width = self.health
 
-        pygame.draw.rect(self.window, Player.HEALTH_BAR_COLOR_BG, self.health_bar_background)
-        pygame.draw.rect(self.window, Player.HEALTH_BAR_COLOR, self.health_bar)
+        pygame.draw.rect(self.window, player.HEALTH_BAR_COLOR_BG, self.health_bar_background)
+        pygame.draw.rect(self.window, player.HEALTH_BAR_COLOR, self.health_bar)
 
     def attack(self, enemy):
         ''' 
-        Player -> None
+        player -> None
         Allows the character to attack another character (takes away a certain number of HP from the latter).
         '''
         if self.recovery_time > self.cooldown:
-            if self.direction == Player.DIRECTION_RIGHT:
+            if self.direction == player.DIRECTION_RIGHT:
                 for i in range(len(self.attack_sprites_right)):
                     self.image = self.attack_sprites_right[i]
 
@@ -143,8 +143,8 @@ class Player(pygame.sprite.Sprite):
                     self.image = self.attack_sprites_left[i]
 
             if self.rect.colliderect(enemy.rect):
-                if self.direction == Player.DIRECTION_RIGHT and self.rect.x < enemy.rect.x or \
-                    self.direction == Player.DIRECTION_LEFT and self.rect.x > enemy.rect.x:
+                if self.direction == player.DIRECTION_RIGHT and self.rect.x < enemy.rect.x or \
+                    self.direction == player.DIRECTION_LEFT and self.rect.x > enemy.rect.x:
                     if enemy.health - self.damage < 0:
                         enemy.health = 0
                     else:
