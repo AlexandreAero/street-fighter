@@ -21,8 +21,8 @@ font = pygame.font.SysFont('Comic Sans MS', 150)
 background = pygame.image.load('./art/background.jpg')
 player_group = pygame.sprite.Group()
 
-player_0 = Player(window, 100, 10, 10, 770, Player.DIRECTION_LEFT, 10, 30, 0)
-player_1 = Player(window, 100, 10, 1700, 770, Player.DIRECTION_LEFT, 10, 30, 1)
+player_0 = player(window, 100, 10, 10, 770, player.DIRECTION_LEFT, 10, 30, 0)
+player_1 = player(window, 100, 10, 1700, 770, player.DIRECTION_LEFT, 10, 30, 1)
 
 player_group.add(player_0)
 player_group.add(player_1)
