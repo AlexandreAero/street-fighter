@@ -82,7 +82,7 @@ class Player(pygame.sprite.Sprite):
 
     def update_inputs(self, enemy):
         '''
-        player -> None
+        Player -> None
         Moves and orients the character according to the key pressed.
         '''
         keys = pygame.key.get_pressed()
