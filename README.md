@@ -1,4 +1,4 @@
-# street-fighter
+<h1 align="center">street-fighter</h1>
 
 ### A remake of the Street Fighter game
 
