@@ -52,14 +52,12 @@ class player(pygame.sprite.Sprite):
         [str] -> [pygame.Surface]
         Utility methods wich import the sprites scaled to fit specific needs.
         '''
-        tab = []
+        sprites = []
         for image in images:
             img_load = pygame.image.load(image)
-            tab.append(
-                pygame.transform.scale(img_load,
-                                       (img_load.get_rect().width * 2,
-                                        img_load.get_rect().height * 2)))
-        return tab
+            scaled = pygame.transform.scale(img_load, (img_load.get_rect().width * 2, img_load.get_rect().height * 2))
+            sprites.append(scaled)
+        return sprites
 
     def update(self):
         ''' 
