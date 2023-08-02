@@ -6,7 +6,7 @@ class player(pygame.sprite.Sprite):
     HEALTH_BAR_COLOR_BG = (255, 255, 255)
     HEALTH_BAR_COLOR = (55, 208, 70)
     def __init__(self, window, health, damage, x, y, direction, speed, cooldown, id):
-        ''' 
+        '''
         pygame.Surface, int, int, int, int, int, int, int, int -> None.
         The id has a value of 0 if it is the player on the left of the screen at the start, otherwise 1.
         '''
@@ -44,11 +44,11 @@ class player(pygame.sprite.Sprite):
             self.health_bar_background = pygame.Rect(20, 30, self.health, 30)
             self.health_bar = pygame.Rect(20, 30, self.health, 30)
         else:
-            self.health_bar_background = pygame.Rect(1700, 30, self.health, 30)
-            self.health_bar = pygame.Rect(1700, 30, self.health, 30)
+            self.health_bar_background = pygame.Rect(20, 80, self.health, 30)
+            self.health_bar = pygame.Rect(20, 80, self.health, 30)
 
     def import_sprites(self, images):
-        ''' 
+        '''
         [str] -> [pygame.Surface]
         Utility methods wich import the sprites scaled to fit specific needs.
         '''
@@ -60,7 +60,7 @@ class player(pygame.sprite.Sprite):
         return sprites
 
     def update(self):
-        ''' 
+        '''
         None -> None
         Updates the current sprite of each character.
         '''
@@ -117,7 +117,7 @@ class player(pygame.sprite.Sprite):
         self.rect.clamp_ip((0, 0, win_w, win_h))
 
     def update_gui(self):
-        ''' 
+        '''
         None -> None
         Updates the GUI related to the player.
         '''
@@ -127,7 +127,7 @@ class player(pygame.sprite.Sprite):
         pygame.draw.rect(self.window, player.HEALTH_BAR_COLOR, self.health_bar)
 
     def attack(self, enemy):
-        ''' 
+        '''
         player -> None
         Allows the character to attack another character (takes away a certain number of HP from the latter).
         '''

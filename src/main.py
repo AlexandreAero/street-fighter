@@ -41,10 +41,12 @@ while not should_quit:
     if player_0.health == 0 or player_1.health == 0:
         if player_0.health == 0:
             text_surface = font.render('Player 1 won!', False, (255, 0, 0))
-            window.blit(text_surface, (WINDOW_SIZE[0] / 2, WINDOW_SIZE[1] / 2))
+            text_rect = text_surface.get_rect(center=(WINDOW_SIZE[0] / 2, WINDOW_SIZE[1] / 2))
+            window.blit(text_surface, text_rect)
         else:
             text_surface = font.render('Player 2 won!', False, (255, 0, 0))
-            window.blit(text_surface, (WINDOW_SIZE[0] / 2, WINDOW_SIZE[1] / 2))
+            text_rect = text_surface.get_rect(center=(WINDOW_SIZE[0] / 2, WINDOW_SIZE[1] / 2))
+            window.blit(text_surface, text_rect)
 
     player_0.update_gui()
     player_1.update_gui()
