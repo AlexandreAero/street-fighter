@@ -1,8 +1,6 @@
-##############################################################################
-# Pilot Alex, 2022-2023, All right reserved. Copyright (c) 2023.             #
-# Made by A.G. under the username of Pilot Alex.                             #
-# Contributers: Amine, Leo and A.G.                                          #
-##############################################################################
+'''
+  Street fighter made by Léo, Amine and Alexandre.
+'''
 
 import pygame
 from player import *
